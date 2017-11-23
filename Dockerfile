@@ -6,6 +6,4 @@ WORKDIR /go/src/app
 RUN go get -u -v github.com/kardianos/govendor && \
     go install github.com/kardianos/govendor   && \
     go get -u github.com/swaggo/swag/cmd/swag  && \
-    go install github.com/swaggo/swag/cmd/swag && \
-    swag -v && \
-    govendor -v  
+    go install github.com/swaggo/swag/cmd/swag 
