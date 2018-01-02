@@ -1,9 +1,12 @@
 FROM golang:1.9.2-alpine3.6
-RUN apk update && apk add --no-cache git supervisor
-WORKDIR /go/src/app
-# go get -u -v github.com/kardianos/govendor
+# add git support 
+RUN apk update && apk add git
 
-RUN go get -u -v github.com/kardianos/govendor && \
-    go install github.com/kardianos/govendor   && \
-    go get -u github.com/swaggo/swag/cmd/swag  && \
-    go install github.com/swaggo/swag/cmd/swag 
+# add dep support 
+RUN go get -u github.com/golang/dep/cmd/dep
+# add go-swagger support 
+RUN go get -u github.com/go-swagger/go-swagger/cmd/swagger
+# clean the directory 
+RUN rm -rf /go/src/ && mkdir -p /go/src/app
+WORKDIR /go/src/app
+
