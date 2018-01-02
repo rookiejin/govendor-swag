@@ -12,3 +12,6 @@ RUN rm -rf /go/src/* && mkdir -p /go/src/app
 RUN echo export PATH=$PATH:/go/bin >> /etc/profile && source /etc/profile
 WORKDIR /go/src/app
 
+# add port 
+EXPOSE 80, 443 
+
